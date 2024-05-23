@@ -1,113 +1,276 @@
-import Image from "next/image";
+"use client"
+
+/**
+ *
+ * by ekimkael.
+ * @see https://github.com/ekimkael/vegas
+ *
+ */
+
+import Link from "next/link"
+import dynamic from "next/dynamic"
+const FortuneWheel = dynamic(() => import("@/components/fortune-wheel"), {
+	ssr: false,
+})
+import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	return (
+		<main className="flex-1">
+			<section className="w-full py-12 md:py-12">
+				{/* bg-[url('/left.png')] bg-no-repeat bg-left-top */}
+				<div className="container px-4 md:px-6 lg:bg-[url('/left.png')] lg:bg-no-repeat lg:bg-left-top">
+					<div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+						<div className="flex flex-col justify-end space-y-4 py-12">
+							<div className="space-y-2">
+								<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+									Elevate Your Gambling Experience
+								</h1>
+								<p className="max-w-[600px] text-muted-foreground md:text-xl dark:text-gray-400">
+									Discover a world of thrilling casino games, lucrative bonuses,
+									and unparalleled excitement at Luxe Casino.
+								</p>
+							</div>
+							<div className="flex flex-col gap-2 min-[400px]:flex-row">
+								<Link
+									className="inline-flex h-10 items-center justify-center rounded-md bg-yellow-500 px-8 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
+									href="#">
+									Join Now
+								</Link>
+								<Link
+									className="inline-flex h-10 items-center justify-center rounded-md border border-gray-600 border-gray-600 bg-transparent px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-600 hover:text-gray-50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
+									href="#">
+									Explore Games
+								</Link>
+							</div>
+						</div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+						<div className="">
+							<FortuneWheel />
+							{/* <picture>
+								<img
+									alt="Casino Hero"
+									className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
+									height={650}
+									src="/placeholder.svg"
+									width={650}
+								/>
+							</picture>
+							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent" /> */}
+						</div>
+					</div>
+				</div>
+			</section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+			<section className="w-full py-12 md:py-24 lg:py-32 bg-[#1e1e1e]">
+				<div className="container px-4 md:px-6">
+					<div className="flex flex-col items-center justify-center space-y-4 text-center">
+						<div className="space-y-2">
+							<div className="inline-block rounded-lg bg-yellow-500 px-3 py-1 text-sm text-gray-950">
+								Featured Games
+							</div>
+							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-50">
+								Explore Our Thrilling Casino Games
+							</h2>
+							<p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								{`From classic slots to cutting-edge table games, our casino
+									offers a diverse selection of thrilling experiences to satisfy
+									every player's preference.`}
+							</p>
+						</div>
+					</div>
+					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
+						<div className="relative overflow-hidden rounded-xl">
+							<img
+								alt="Game 1"
+								className="mx-auto aspect-video object-cover object-center sm:w-full"
+								height={310}
+								src="/placeholder.svg"
+								width={550}
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
+								<div className="space-y-1">
+									<h3 className="text-xl font-bold text-gray-50">Blackjack</h3>
+									<p className="text-gray-300">
+										Experience the thrill of classic casino gameplay.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl">
+							<img
+								alt="Game 2"
+								className="mx-auto aspect-video object-cover object-center sm:w-full"
+								height={310}
+								src="/placeholder.svg"
+								width={550}
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
+								<div className="space-y-1">
+									<h3 className="text-xl font-bold text-gray-50">Roulette</h3>
+									<p className="text-gray-300">
+										Spin the wheel and test your luck at this iconic game.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl">
+							<img
+								alt="Game 3"
+								className="mx-auto aspect-video object-cover object-center sm:w-full"
+								height={310}
+								src="/placeholder.svg"
+								width={550}
+							/>
+							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
+								<div className="space-y-1">
+									<h3 className="text-xl font-bold text-gray-50">Slots</h3>
+									<p className="text-gray-300">
+										Spin the reels and chase the big jackpot.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+			<section className="w-full py-12 md:py-24 lg:py-32 bg-[#1e1e1e]">
+				<div className="container px-4 md:px-6">
+					<div className="flex flex-col items-center justify-center space-y-4 text-center">
+						<div className="space-y-2">
+							<div className="inline-block rounded-lg bg-yellow-500 px-3 py-1 text-sm text-gray-950">
+								Bonuses & Promotions
+							</div>
+							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-50">
+								Unlock Exclusive Rewards
+							</h2>
+							<p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								Take advantage of our generous bonuses and promotions to boost
+								your bankroll and maximize your casino experience.
+							</p>
+						</div>
+					</div>
+					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+							<div className="space-y-2">
+								<h3 className="text-xl font-bold text-gray-50">
+									Welcome Bonus
+								</h3>
+								<p className="text-gray-300">
+									Claim a 100% match bonus up to $1,000 on your first deposit.
+								</p>
+								<Link
+									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
+									href="#">
+									Claim Now
+								</Link>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+							<div className="space-y-2">
+								<h3 className="text-xl font-bold text-gray-50">Reload Bonus</h3>
+								<p className="text-gray-300">
+									Get a 50% match bonus up to $500 on every subsequent deposit.
+								</p>
+								<Link
+									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
+									href="#">
+									Claim Now
+								</Link>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+							<div className="space-y-2">
+								<h3 className="text-xl font-bold text-gray-50">
+									Loyalty Program
+								</h3>
+								<p className="text-gray-300">
+									Earn points with every wager and climb the VIP tiers for
+									exclusive rewards.
+								</p>
+								<Link
+									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
+									href="#">
+									Join Now
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+			<section className="w-full py-12 md:py-24 lg:py-32 bg-[#1e1e1e]">
+				<div className="container px-4 md:px-6">
+					<div className="flex flex-col items-center justify-center space-y-4 text-center">
+						<div className="space-y-2">
+							<div className="inline-block rounded-lg bg-yellow-500 px-3 py-1 text-sm text-gray-950">
+								Testimonials
+							</div>
+							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-50">
+								What Our Players Say
+							</h2>
+							<p className="max-w-[900px] text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
+								Hear from our satisfied customers and discover why Luxe Casino
+								is the premier destination for online gambling.
+							</p>
+						</div>
+					</div>
+					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+							<div className="space-y-4">
+								<div className="space-y-2">
+									<p className="text-lg font-semibold leading-snug text-gray-50">
+										“Luxe Casino has completely transformed my online gambling
+										experience. The games are thrilling, the bonuses are
+										generous, and the customer support is top-notch.”
+									</p>
+									<div className="flex items-center space-x-4">
+										<Avatar>
+											<AvatarImage src="/avatar-1.jpg" />
+											<AvatarFallback>JD</AvatarFallback>
+										</Avatar>
+										<div>
+											<div className="text-sm font-semibold text-gray-50">
+												John Doe
+											</div>
+											<div className="text-sm text-gray-300">
+												Professional Gambler
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+							<div className="space-y-4">
+								<div className="space-y-2">
+									<p className="text-lg font-semibold leading-snug text-gray-50">
+										{`“I've tried many online casinos, but Luxe Casino stands
+											out with its exceptional game selection, user-friendly
+											interface, and unbeatable promotions. It's my go-to
+											destination for online gambling.”`}
+									</p>
+									<div className="flex items-center space-x-4">
+										<Avatar>
+											<AvatarImage src="/avatar-2.jpg" />
+											<AvatarFallback>SM</AvatarFallback>
+										</Avatar>
+										<div>
+											<div className="text-sm font-semibold text-gray-50">
+												Sarah Miller
+											</div>
+											<div className="text-sm text-gray-300">
+												Avid Casino Enthusiast
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	)
 }
