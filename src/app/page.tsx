@@ -17,20 +17,20 @@ import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 export default function Home() {
 	return (
 		<main className="flex-1">
-			<section className="w-full py-12 md:py-12">
-				<div className="container px-4 md:px-6 lg:bg-[url('/left.png')] lg:bg-no-repeat lg:bg-left-top">
-					<div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-						<div className="md:flex md:flex-col md:justify-end space-y-4 py-12">
-							<div className="space-y-2">
-								<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+			<section className="w-full py-12 md:py-12 hero-gradient">
+				<div className="container px-4 md:px-6">
+					<div className="grid justify-center lg:justify-start gap-6 lg:grid-cols-2 lg:gap-12">
+						<div className="max-w-[600px] text-white md:flex md:flex-col md:justify-end space-y-4 py-12">
+							<div className="space-y-8">
+								<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center lg:text-left xl:text-6xl/none">
 									Elevate Your Gambling Experience
 								</h1>
-								<p className="max-w-[600px] text-muted-foreground md:text-xl dark:text-gray-400">
+								<p className="md:text-xl text-center lg:text-left dark:text-gray-400">
 									Discover a world of thrilling casino games, lucrative bonuses,
 									and unparalleled excitement at Luxe Casino.
 								</p>
 							</div>
-							<div className="flex flex-col gap-2 min-[400px]:flex-row">
+							<div className="flex flex-row justify-center lg:justify-start gap-2">
 								<Link
 									className="inline-flex h-10 items-center justify-center rounded-md bg-yellow-500 px-8 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
 									href="#">
@@ -44,7 +44,9 @@ export default function Home() {
 							</div>
 						</div>
 
-						<FortuneWheel />
+						<div className="flex flex-col md:items-center">
+							<FortuneWheel />
+						</div>
 					</div>
 				</div>
 			</section>
@@ -68,13 +70,15 @@ export default function Home() {
 					</div>
 					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
 						<div className="relative overflow-hidden rounded-xl">
-							<img
-								alt="Game 1"
-								className="mx-auto aspect-video object-cover object-center sm:w-full"
-								height={310}
-								src="/placeholder.svg"
-								width={550}
-							/>
+							<picture>
+								<img
+									width={550}
+									height={310}
+									alt="Game 1 - blackjack"
+									src="/BlackjackTable.webp"
+									className="mx-auto aspect-video object-cover object-center sm:w-full"
+								/>
+							</picture>
 							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
 								<div className="space-y-1">
 									<h3 className="text-xl font-bold text-gray-50">Blackjack</h3>
@@ -85,13 +89,15 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="relative overflow-hidden rounded-xl">
-							<img
-								alt="Game 2"
-								className="mx-auto aspect-video object-cover object-center sm:w-full"
-								height={310}
-								src="/placeholder.svg"
-								width={550}
-							/>
+							<picture>
+								<img
+									alt="Game 2"
+									className="mx-auto aspect-video object-cover object-center sm:w-full"
+									height={310}
+									src="/roulette.jpg"
+									width={550}
+								/>
+							</picture>
 							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
 								<div className="space-y-1">
 									<h3 className="text-xl font-bold text-gray-50">Roulette</h3>
@@ -102,13 +108,15 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="relative overflow-hidden rounded-xl">
-							<img
-								alt="Game 3"
-								className="mx-auto aspect-video object-cover object-center sm:w-full"
-								height={310}
-								src="/placeholder.svg"
-								width={550}
-							/>
+							<picture>
+								<img
+									alt="Game 3"
+									className="mx-auto aspect-video object-cover object-center sm:w-full"
+									height={310}
+									src="/slots.webp"
+									width={550}
+								/>
+							</picture>
 							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent flex items-end p-4">
 								<div className="space-y-1">
 									<h3 className="text-xl font-bold text-gray-50">Slots</h3>
@@ -122,7 +130,7 @@ export default function Home() {
 				</div>
 			</section>
 
-			<section className="w-full py-12 md:py-24 lg:py-32 bg-[#1e1e1e]">
+			<section className="w-full py-12 md:py-24 lg:py-32 bg-[#1e1e1e] homescreen">
 				<div className="container px-4 md:px-6">
 					<div className="flex flex-col items-center justify-center space-y-4 text-center">
 						<div className="space-y-2">
@@ -147,9 +155,7 @@ export default function Home() {
 								<p className="text-gray-300">
 									Claim a 100% match bonus up to $1,000 on your first deposit.
 								</p>
-								<Link
-									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
-									href="#">
+								<Link className="button-87" href="#">
 									Claim Now
 								</Link>
 							</div>
@@ -160,9 +166,7 @@ export default function Home() {
 								<p className="text-gray-300">
 									Get a 50% match bonus up to $500 on every subsequent deposit.
 								</p>
-								<Link
-									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
-									href="#">
+								<Link className="button-87" href="#">
 									Claim Now
 								</Link>
 							</div>
@@ -176,9 +180,7 @@ export default function Home() {
 									Earn points with every wager and climb the VIP tiers for
 									exclusive rewards.
 								</p>
-								<Link
-									className="inline-flex h-9 items-center justify-center rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-gray-950 shadow transition-colors hover:bg-yellow-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-yellow-700 disabled:pointer-events-none disabled:opacity-50"
-									href="#">
+								<Link className="button-87" href="#">
 									Join Now
 								</Link>
 							</div>
@@ -203,8 +205,8 @@ export default function Home() {
 							</p>
 						</div>
 					</div>
-					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+					<div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 sm:grid-cols-2 lg:gap-12">
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#FF512F] p-6">
 							<div className="space-y-4">
 								<div className="space-y-2">
 									<p className="text-lg font-semibold leading-snug text-gray-50">
@@ -214,7 +216,7 @@ export default function Home() {
 									</p>
 									<div className="flex items-center space-x-4">
 										<Avatar>
-											<AvatarImage src="/avatar-1.jpg" />
+											<AvatarImage src="" />
 											<AvatarFallback>JD</AvatarFallback>
 										</Avatar>
 										<div>
@@ -229,18 +231,18 @@ export default function Home() {
 								</div>
 							</div>
 						</div>
-						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#1e1e1e] p-6">
+						<div className="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#2c2c2c] to-[#FF512F] p-6">
 							<div className="space-y-4">
 								<div className="space-y-2">
 									<p className="text-lg font-semibold leading-snug text-gray-50">
-										{`“I've tried many online casinos, but Luxe Casino stands
-											out with its exceptional game selection, user-friendly
-											interface, and unbeatable promotions. It's my go-to
-											destination for online gambling.”`}
+										“I&#39;ve tried many online casinos, but Luxe Casino stands
+										out with its exceptional game selection, user-friendly
+										interface, and unbeatable promotions. It&#39;s my go-to
+										destination for online gambling.”
 									</p>
 									<div className="flex items-center space-x-4">
 										<Avatar>
-											<AvatarImage src="/avatar-2.jpg" />
+											<AvatarImage src="" />
 											<AvatarFallback>SM</AvatarFallback>
 										</Avatar>
 										<div>

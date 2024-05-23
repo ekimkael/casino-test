@@ -6,7 +6,7 @@ interface Props {}
 
 const Navbar = (props: Props) => {
 	return (
-		<header className="px-4 lg:px-6 h-14 flex items-center">
+		<header className="px-4 lg:px-6 h-14 flex items-center bg-transparent">
 			<Link className="flex items-center justify-center space-x-2" href="#">
 				<DiamondIcon className="h-6 w-6 text-yellow-500" />
 				<h5 className="font-semibold">Vegas</h5>
