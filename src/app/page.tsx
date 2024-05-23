@@ -18,10 +18,9 @@ export default function Home() {
 	return (
 		<main className="flex-1">
 			<section className="w-full py-12 md:py-12">
-				{/* bg-[url('/left.png')] bg-no-repeat bg-left-top */}
 				<div className="container px-4 md:px-6 lg:bg-[url('/left.png')] lg:bg-no-repeat lg:bg-left-top">
 					<div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-						<div className="flex flex-col justify-end space-y-4 py-12">
+						<div className="md:flex md:flex-col md:justify-end space-y-4 py-12">
 							<div className="space-y-2">
 								<h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
 									Elevate Your Gambling Experience
@@ -45,19 +44,7 @@ export default function Home() {
 							</div>
 						</div>
 
-						<div className="">
-							<FortuneWheel />
-							{/* <picture>
-								<img
-									alt="Casino Hero"
-									className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-									height={650}
-									src="/placeholder.svg"
-									width={650}
-								/>
-							</picture>
-							<div className="absolute inset-0 bg-gradient-to-t from-[#1e1e1e]/90 to-transparent" /> */}
-						</div>
+						<FortuneWheel />
 					</div>
 				</div>
 			</section>

@@ -77,10 +77,4 @@
     h1, h2, h3, h4, h5, h6 {
       font-family: var(--font-gabarito), sans-serif;
     }
-    .homescreen {
-      background: url(/left.png), url(/right.png), linear-gradient(0deg, white 170px, var(--background) 170px, var(--background) 100%);
-      background-repeat: no-repeat;
-      background-position: left top, right top, center;
-      background-size: auto, auto, auto;
-    }
   }

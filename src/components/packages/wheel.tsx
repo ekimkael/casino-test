@@ -32,7 +32,7 @@ const WheelComponent = (props: WheelComponentProps) => {
 		size = window.innerWidth,
 		upDuration = 100,
 		downDuration = 1000,
-		fontFamily = "proxima-nova",
+		fontFamily = "Arial",
 		fontSize = "1em",
 		outlineWidth = 10,
 	} = props
@@ -50,15 +50,14 @@ const WheelComponent = (props: WheelComponentProps) => {
 		const chars =
 			"0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".split("")
 		const length = 8
-		let str = ""
+		let token = ""
 		for (let i = 0; i < length; i++) {
-			str += chars[Math.floor(Math.random() * chars.length)]
+			token += chars[Math.floor(Math.random() * chars.length)]
 		}
-		return str
+		return token
 	}
 
 	const [isFinished, setFinished] = useState(false)
-	const canvasRef = useRef<HTMLCanvasElement>(null)
 	const canvasId = useRef(`canvas-${randomString()}`)
 	const wheelId = useRef(`wheel-${randomString()}`)
 	const dimension = (size + 20) * 2
@@ -78,12 +77,6 @@ const WheelComponent = (props: WheelComponentProps) => {
 	const centerY = size + 20
 
 	useEffect(() => {
-		const canvas = canvasRef.current
-		if (canvas) {
-			canvas.width = canvas.parentElement?.clientWidth || 0
-			canvas.height = canvas.parentElement?.clientHeight || 0
-		}
-
 		wheelInit()
 		setTimeout(() => {
 			window.scrollTo(0, 1)
@@ -114,8 +107,8 @@ const WheelComponent = (props: WheelComponentProps) => {
 
 		if (navigator.userAgent.indexOf("MSIE") !== -1) {
 			canvas = document.createElement("canvas")
-			canvas.setAttribute("width", `100%`)
-			canvas.setAttribute("height", `auto`)
+			canvas.setAttribute("width", `${dimension}`)
+			canvas.setAttribute("height", `${dimension}`)
 			canvas.setAttribute("id", canvasId.current)
 			document.getElementById(wheelId.current)?.appendChild(canvas)
 		}
@@ -354,6 +347,7 @@ const WheelComponent = (props: WheelComponentProps) => {
 	return (
 		<div id={wheelId.current}>
 			<canvas
+				className="w-full md:w-auto"
 				id={canvasId.current}
 				width={dimension}
 				height={dimension}

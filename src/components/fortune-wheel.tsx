@@ -38,7 +38,6 @@ const FortuneWheel = (props: Props) => {
 			onFinished={(winner) => onFinished(winner)}
 			isOnlyOnce={false}
 			size={240}
-			fontFamily="Arial"
 		/>
 	)
 }
